@@ -29,7 +29,8 @@ Your contributions are very welcome:
 - archive downloaded videos in Pocket
 - support Vimeo
 
--------Original README below↓--------------------------------------------------------
+↓↓↓↓↓↓↓ Original README below ↓↓↓↓↓↓↓↓↓↓
+========================================
 
 pocket-ruby 
 ===========
