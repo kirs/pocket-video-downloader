@@ -1,7 +1,35 @@
-pocket-ruby
+Fork of pocket-ruby
 ===========
 
-[![Code Climate](https://codeclimate.com/github/turadg/pocket-ruby.png)](https://codeclimate.com/github/turadg/pocket-ruby) [![Gem Version](https://badge.fury.io/rb/pocket-ruby.png)](http://badge.fury.io/rb/pocket-ruby)
+Original URL: https://github.com/turadg/pocket-ruby
+
+It can download N latest videos from [your Pocket library](https://getpocket.com/a/queue/).
+
+## Prerequisites:
+
+- You need to get your Pocket access token and hardcode it to downloader.rb.
+- You need to hardcode the destination folder
+- You need to install [youtube-dl](https://github.com/rg3/youtube-dl).
+
+Usage: `ruby downloader.rb`
+
+
+## Limitations
+- only supports Youtube
+- regex for Youtube detection is very stupid
+- limit of 100 items is hardcoded, so it won't work if you have mostly articles in you library
+- No error handling
+
+Your contributions are very welcome:
+
+## What can be improved
+- use separate yaml file to store access token
+- accept arguments, like number of videos to download and simulation mode, and destination folder 
+- archive downloaded videos in Pocket
+- support Vimeo
+
+pocket-ruby 
+===========
 
 Ruby API for v3 of the [Pocket API](http://getpocket.com/developer/docs/overview) (formerly Read It Later) 
 
