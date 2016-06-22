@@ -7,7 +7,7 @@ It can download N latest videos from [your Pocket library](https://getpocket.com
 
 ## Prerequisites:
 
-- You need to get your Pocket access token and hardcode it to downloader.rb.
+- You need to get your Pocket access token and hardcode it(run `demo-server.rb` and see the logs)
 - You need to hardcode the destination folder
 - You need to install [youtube-dl](https://github.com/rg3/youtube-dl).
 
@@ -27,6 +27,8 @@ Your contributions are very welcome:
 - accept arguments, like number of videos to download and simulation mode, and destination folder 
 - archive downloaded videos in Pocket
 - support Vimeo
+
+-------Original README below↓--------------------------------------------------------
 
 pocket-ruby 
 ===========
