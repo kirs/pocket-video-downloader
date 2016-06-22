@@ -1,17 +1,14 @@
-Fork of pocket-ruby
+Fork of [pocket-ruby](https://github.com/turadg/pocket-ruby)
 ===========
-
-Original URL: https://github.com/turadg/pocket-ruby
 
 Downloads N latest videos from [your Pocket library](https://getpocket.com/a/queue/).
 
 ## My usage scenario:
 Download last 5 videos to put them on my iPad before a long flight.
 
-
 ## Prerequisites:
 
-- You need to get your Pocket access token and hardcode it(run `demo-server.rb` and see the logs)
+- You had to run `ruby demo-server.rb`, authorize, grab your access token in logs, and hardcode it
 - You need to hardcode the destination folder
 - You need to install [youtube-dl](https://github.com/rg3/youtube-dl).
 
