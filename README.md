@@ -3,7 +3,11 @@ Fork of pocket-ruby
 
 Original URL: https://github.com/turadg/pocket-ruby
 
-It can download N latest videos from [your Pocket library](https://getpocket.com/a/queue/).
+Downloads N latest videos from [your Pocket library](https://getpocket.com/a/queue/).
+
+## My usage scenario:
+Download last 5 videos to put them on my iPad before a long flight.
+
 
 ## Prerequisites:
 
