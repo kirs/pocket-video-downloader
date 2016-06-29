@@ -1,3 +1,4 @@
+require 'bundler/setup'
 require "sinatra"
 
 require "./lib/pocket-ruby.rb"
@@ -13,6 +14,7 @@ end
 get '/reset' do
   puts "GET /reset"
   session.clear
+  redirect '/'
 end
 
 get "/" do
@@ -21,8 +23,9 @@ get "/" do
 
   if session[:access_token]
     '
-<a href="/add?url=http://getpocket.com">Add Pocket Homepage</a>
-<a href="/retrieve">Retrieve single item</a>
+<h1>Your token is now saved to settings.yml. You may now run downloader.rb.</h1>
+<a href="/retrieve">Test (retrieve single Pocket item)</a>
+<a href="/reset">Reset session</a>
     '
   else
     '<a href="/oauth/connect">Connect with Pocket</a>'
@@ -44,12 +47,15 @@ get "/oauth/callback" do
   puts "request.body: #{request.body.read}"
   result = Pocket.get_result(session[:code], :redirect_uri => CALLBACK_URL)
   session[:access_token] = result['access_token']
-  puts result['access_token']
-  puts result['username']	
-  # Alternative method to get the access token directly
-  #session[:access_token] = Pocket.get_access_token(session[:code])
-  puts session[:access_token]
-  puts "session: #{session}"
+
+  require 'yaml'
+  File.open("settings.yml", "w") do |f|
+    f.write(YAML.dump({
+      access_token: result.fetch('access_token'),
+      username: result.fetch('username'),
+    }))
+  end
+
   redirect "/"
 end
 

@@ -1,6 +1,7 @@
+require 'bundler/setup'
 # Project URL: https://gitlab.com/inem/pocket-video-downloader
 
-# Uses https://github.com/turadg/pocket-ruby & 
+# Uses https://github.com/turadg/pocket-ruby &
 #      https://github.com/rg3/youtube-dl
 
 require "./lib/pocket-ruby.rb"
@@ -9,9 +10,20 @@ Pocket.configure do |config|
   config.consumer_key = '10188-3565cd04d1464e6d0e64b67f' # have no idea what is it
 end
 
-access_token = "your-access-token" # run ruby demo-server.rb, authorize, grab your access token in logs, and hardcode it here
-download_n_videos = 5
-where_to_store = "./Pocket/"
+require 'yaml'
+access_token = begin
+             settings = YAML.load(File.read('settings.yml'))
+             access_token = settings.fetch("access_token")
+           rescue Errno::ENOENT
+             puts "settings.yml does not exist. Please run demo-server to get the Pocket token"
+             exit 1
+           rescue KeyError
+             puts "settings.yml does not have access_token present. Please run demo-server to get the Pocket token"
+             exit 1
+           end
+
+download_n_videos = 10
+where_to_store = "~/Movies/Pocket/"
 
 client = Pocket.client(:access_token => access_token)
 
@@ -28,4 +40,3 @@ info["list"].values.select{|item| item["given_url"] =~ /youtube\.com/ }.select{|
 	# -s - simulate
 	# -q - quiet
 end
-
