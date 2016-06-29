@@ -1,4 +1,4 @@
-Fork of [pocket-ruby](https://github.com/turadg/pocket-ruby)
+Fork of [pocket-ruby](https://github.com/turadg/pocket-ruby) and [inem/pocket-video-downloader](https://gitlab.com/inem/pocket-video-downloader)
 ===========
 
 Downloads N latest videos from [your Pocket library](https://getpocket.com/a/queue/).
