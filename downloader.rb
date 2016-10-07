@@ -13,7 +13,7 @@ end
 require 'yaml'
 access_token = begin
              settings = YAML.load(File.read('settings.yml'))
-             access_token = settings.fetch("access_token")
+             access_token = settings.fetch(:access_token)
            rescue Errno::ENOENT
              puts "settings.yml does not exist. Please run demo-server to get the Pocket token"
              exit 1
