@@ -12,15 +12,15 @@ end
 
 require 'yaml'
 access_token = begin
-             settings = YAML.load(File.read('settings.yml'))
-             access_token = settings.fetch(:access_token)
-           rescue Errno::ENOENT
-             puts "settings.yml does not exist. Please run demo-server to get the Pocket token"
-             exit 1
-           rescue KeyError
-             puts "settings.yml does not have access_token present. Please run demo-server to get the Pocket token"
-             exit 1
-           end
+  settings = YAML.load(File.read('settings.yml'))
+  access_token = settings.fetch(:access_token)
+rescue Errno::ENOENT
+  puts "settings.yml does not exist. Please run demo-server to get the Pocket token"
+  exit 1
+rescue KeyError
+  puts "settings.yml does not have access_token present. Please run demo-server to get the Pocket token"
+  exit 1
+end
 
 download_n_videos = 10
 where_to_store = "~/Movies/Pocket/"
